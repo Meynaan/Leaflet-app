@@ -1,10 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Leaflet Map
+      Myn Leaflet Map
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content id="mapId" style="height: 100%; width: 100%" [fullscreen]="false">
+  <!-- Peta Leaflet akan ditampilkan di sini -->
+  <div id="mapId" style="height: 100vh;"></div>
+
+  <!-- Dropdown untuk memilih basemap -->
+  <div style="position: absolute; top: 10px; right: 10px; z-index: 1000;">
+    <select (change)="changeBasemap($event)">
+      <option *ngFor="let basemap of basemaps" [value]="basemap.name">{{ basemap.name }}</option>
+    </select>
+  </div>
+
 </ion-content>
